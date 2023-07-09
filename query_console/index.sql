@@ -4,3 +4,4 @@ use user_contact_address;
 show tables;
 
 describe users;
+describe contacts;
