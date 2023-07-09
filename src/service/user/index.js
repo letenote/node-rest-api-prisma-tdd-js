@@ -1,4 +1,4 @@
-import { register } from "../../validation/user/register.js";
+import { register } from "./register.js";
 
 export default {
   register
