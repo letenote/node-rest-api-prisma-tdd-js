@@ -3,25 +3,26 @@
   "version": "1.0.0",
   "description": "simple rest api nodejs - express with orm prisma and tdd with jest",
   "main": "src/main.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/letenote/node-rest-api-prisma-tdd-js.git"
-  },
-  "author": "",
-  "license": "ISC",
   "type": "module",
-  "bugs": {
-    "url": "https://github.com/letenote/node-rest-api-prisma-tdd-js/issues"
-  },
-  "homepage": "https://github.com/letenote/node-rest-api-prisma-tdd-js#readme",
   "scripts": {
-    "test": "jest -i"
+    "test": "jest -i",
+    "dev": "node --experimental-modules src/main.js"
   },
   "jest": {
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/letenote/node-rest-api-prisma-tdd-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/letenote/node-rest-api-prisma-tdd-js/issues"
+  },
+  "homepage": "https://github.com/letenote/node-rest-api-prisma-tdd-js#readme",
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "@prisma/client": "^4.16.2",
     "bcrypt": "^5.1.0",
