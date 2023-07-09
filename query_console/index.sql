@@ -5,3 +5,4 @@ show tables;
 
 describe users;
 describe contacts;
+describe addresses;
