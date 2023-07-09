@@ -22,3 +22,6 @@ model User {
 - npx prisma migrate dev --create-only
 - then create migration name, ex 'create_table_users'
 - npx prisma migrate dev
+
+### config all error in prisma to winston logger
+read: https://www.prisma.io/docs/concepts/components/prisma-client/working-with-prismaclient/logging
