@@ -74,11 +74,6 @@ describe('POST /api/users', () => {
         name: _DUMMY_TEST.name
       });
 
-      console.log("DEBUG", {
-        status: result.status,
-        body: result.body
-      })
-
     expect(result.status).toBe(400);
     expect(result.body.error).toBe(true);
     expect(result.body.message).toBe(constant.user.response.message.failed.USERNAME_ALREADY_EXIST);
