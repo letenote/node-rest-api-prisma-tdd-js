@@ -8,3 +8,17 @@ simple rest api nodejs - express with orm prisma and tdd with jest
 ### config
 - create sql database
 - npx prisma init
+
+### create DB Model
+- definition db schema in prisma/schema.prisma, ex:
+```
+model User {
+  id        Int     @id @default(autoincrement())
+  ...
+
+  @@map("users")
+}
+```
+- npx prisma migrate dev --create-only
+- then create migration name, ex 'create_table_users'
+- npx prisma migrate dev
