@@ -1,21 +1,11 @@
 import supertest from "supertest";
 import { web } from "../src/application/web.js";
-import { prismaClient } from "../src/application/database.js";
 import constant from "../src/constant/index.js";
-
-const _DUMMY_TEST = {
-  username: "username-dummy",
-  password: "password-dummy",
-  name: "name-dummy"
-}
+import { removeTestUser, _DUMMY_TEST } from "./ test-util.js";
 
 describe('POST /api/users', () => {
   afterEach(async () => {
-    await prismaClient.user.deleteMany({
-      where: {
-        username: _DUMMY_TEST.username
-      }
-    })
+    await removeTestUser()
   });
 
   it('should can rergister new user', async () => {
@@ -73,11 +63,6 @@ describe('POST /api/users', () => {
         password: _DUMMY_TEST.password,
         name: _DUMMY_TEST.name
       });
-
-      console.log("DEBUG", {
-        status: result.status,
-        body: result.body
-      })
 
     expect(result.status).toBe(400);
     expect(result.body.error).toBe(true);

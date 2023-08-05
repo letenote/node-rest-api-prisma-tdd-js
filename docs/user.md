@@ -109,7 +109,7 @@
     "name": "name-dummy"
   },
   error: false,
-  message: ""
+  message: "Success"
 }
 ```
 - ResponseBody:FAILED
