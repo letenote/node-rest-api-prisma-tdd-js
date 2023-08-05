@@ -1,34 +1,15 @@
 import supertest from "supertest";
 import { web } from "../src/application/web.js";
-import { prismaClient } from "../src/application/database.js";
 import constant from "../src/constant/index.js";
-import bcrypt from "bcrypt";
-
-const _DUMMY_TEST = {
-  username: "username-dummy",
-  password: "password-dummy",
-  name: "name-dummy",
-  token: "token-dummy"
-}
+import { createTestUser, removeTestUser, _DUMMY_TEST } from "./ test-util.js";
 
 describe('POST /api/users/login', () => {
   beforeEach(async () => {
-    await prismaClient.user.create({
-      data: {
-        username: _DUMMY_TEST.username,
-        password: await bcrypt.hash(_DUMMY_TEST.password, 10),
-        name: _DUMMY_TEST.name,
-        token: _DUMMY_TEST.token
-      }
-    })
+    await createTestUser();
   });
 
   afterEach(async () => {
-    await prismaClient.user.deleteMany({
-      where: {
-        username: _DUMMY_TEST.username
-      }
-    })
+    await removeTestUser();
   });
 
   it('should can login', async () => {
